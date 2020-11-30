@@ -1,3 +1,4 @@
+require 'pry'
 class TicTacToe
 attr_accessor :board, :number
 
@@ -93,14 +94,8 @@ def winner
 end
 
 def play 
-  while over? == false
-    turn 
-  end  
-     if draw?
-       puts "Cat's Game!"
-     elsif won? 
-       puts "Congratulations #{winner}!"
-   end
+  turn until over?
+  puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
 end
 
 end
